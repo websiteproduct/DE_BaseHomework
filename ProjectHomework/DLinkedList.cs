@@ -4,33 +4,33 @@ using System.Text;
 
 namespace BaseHomework
 {
-    public class DoublyLinkedList
+    public class DLinkedList
     {
-        DoublyNode head;
-        DoublyNode tail;
+        DNode head;
+        DNode tail;
         int size;
 
-        class DoublyNode
+        class DNode
         {
             public int Value { get; set; }
-            public DoublyNode Next { get; set; }
-            public DoublyNode Previous { get; set; }
+            public DNode Next { get; set; }
+            public DNode Previous { get; set; }
         }
 
-        public DoublyLinkedList()
+        public DLinkedList()
         {
             head = null;
             tail = null;
             size = 0;
         }
 
-        public DoublyLinkedList(int[] array)
+        public DLinkedList(int[] array)
         {
-            DoublyNode prev = null;
+            DNode prev = null;
 
             for (int i = 0; i < array.Length; i++)
             {
-                DoublyNode node = new DoublyNode();
+                DNode node = new DNode();
                 node.Value = array[i];
 
                 if (i == 0)
@@ -51,7 +51,7 @@ namespace BaseHomework
 
         public int[] ToArray()
         {
-            DoublyNode current = head;
+            DNode current = head;
             int[] arr = new int[size];
             int count = 0;
 
@@ -66,9 +66,11 @@ namespace BaseHomework
 
         public void AddFirst(int val)
         {
-            DoublyNode node = new DoublyNode();
-            node.Value = val;
-            node.Next = head;
+            DNode node = new DNode
+            {
+                Value = val,
+                Next = head
+            };
             head = node;
 
             if (size == 0)
@@ -89,8 +91,10 @@ namespace BaseHomework
 
         public void AddLast(int val)
         {
-            DoublyNode node = new DoublyNode();
-            node.Value = val;
+            DNode node = new DNode
+            {
+                Value = val
+            };
 
             if (head == null)
             {
@@ -115,10 +119,12 @@ namespace BaseHomework
 
         public void AddAt(int idx, int val)
         {
-            DoublyNode node = new DoublyNode();
-            node.Value = val;
+            DNode node = new DNode
+            {
+                Value = val
+            };
 
-            DoublyNode prev = head;
+            DNode prev = head;
             int count = 0;
 
             while (count < idx)
@@ -188,7 +194,7 @@ namespace BaseHomework
                 return -1;
             }
 
-            DoublyNode prev = head;
+            DNode prev = head;
             int count = 0;
 
             while (count < idx)
@@ -202,7 +208,7 @@ namespace BaseHomework
 
         public bool Contains(int val)
         {
-            DoublyNode node = head;
+            DNode node = head;
 
             if (GetSize() == 0) return false;
 
@@ -222,7 +228,7 @@ namespace BaseHomework
         {
             if (idx > size) return;
 
-            DoublyNode prev = head;
+            DNode prev = head;
             int count = 0;
 
             while (count < idx)
@@ -256,7 +262,7 @@ namespace BaseHomework
         {
             if (head == null) return;
 
-            DoublyNode current = head, prev = null;
+            DNode current = head, prev = null;
             int count = 0;
 
             while (count < idx)
@@ -289,7 +295,7 @@ namespace BaseHomework
 
         public int IndexOf(int val)
         {
-            DoublyNode node = head;
+            DNode node = head;
             int idx = 0;
 
             while (node != null)
@@ -310,17 +316,17 @@ namespace BaseHomework
         {
             if (head == null) return;
 
-            DoublyNode current = head;
+            DNode current = head;
 
             while (current.Next != null)
             {
-                DoublyNode tmp = current.Next;
+                DNode tmp = current.Next;
                 current.Next = current.Previous;
                 current.Previous = tmp;
                 current = current.Previous;
             }
 
-            DoublyNode tmp1 = current.Next;
+            DNode tmp1 = current.Next;
             current.Next = current.Previous;
             current.Previous = tmp1;
             head = current;
@@ -330,7 +336,7 @@ namespace BaseHomework
         {
             if (head == null) return;
 
-            DoublyNode current = head, prev = null;
+            DNode current = head, prev = null;
 
             while (current != null)
             {
@@ -364,7 +370,7 @@ namespace BaseHomework
 
         public void PrintList()
         {
-            DoublyNode tmp = head;
+            DNode tmp = head;
             while (tmp != null)
             {
                 Console.Write(tmp.Value + " ");

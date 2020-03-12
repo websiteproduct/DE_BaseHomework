@@ -129,15 +129,14 @@ namespace BaseHomework
         }
 
 
-        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 2, new int[] { 1, 2, 4, 5 })]
-        public void RemoveAllTest(int[] array, int val, int[] expected)
-        {
-            ArrayList arrList = new ArrayList(array);
-            arrList.RemoveAll(val);
+        //[TestCase(new int[] { 1, 2, 3, 4, 5 }, 2, new int[] { 1, 2, 4, 5 })]
+        //public void RemoveAllTest(int[] array, int val, int[] expected)
+        //{
+        //    ArrayList arrList = new ArrayList(array);
+        //    arrList.RemoveAll(val);
 
-            int[] actual = arrList.ToArray();
-            Assert.AreEqual(expected, actual);
-        }
-
+        //    int[] actual = arrList.ToArray();
+        //    Assert.AreEqual(expected, actual);
+        //}
     }
 }

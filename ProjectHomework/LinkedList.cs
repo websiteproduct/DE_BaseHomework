@@ -7,7 +7,6 @@ namespace BaseHomework
     public class LinkedList
     {
         Node head;
-
         public class Node
         {
             public int value;
@@ -20,7 +19,7 @@ namespace BaseHomework
             }
         }
 
-        //Добавляет элемент
+        // Add element
         public void Add(Node node)
         {
             if (head == null)
@@ -36,22 +35,21 @@ namespace BaseHomework
             }
         }
 
-        //Реверс листа
+        // List Reverse
         public void Reverse()
         {
-
             Node tmp = head, lostLink = null;
             while (tmp.next != null)
             {
                 lostLink = tmp.next; 
                 tmp.next = tmp.next.next; 
                 lostLink.next = head; 
-                head = lostLink; 
-                
+                head = lostLink;
+                PrintList();
             }
         }
         
-        // Размер листа
+        // Get List size
         public int ListSize()
         {
             int count = 0;
@@ -64,7 +62,7 @@ namespace BaseHomework
             return count;
         }
 
-        // Добавляет элемент на определенную позицию
+        // Add element at index
         public void AddAtIndex(Node node, int index)
         {
             {
@@ -94,7 +92,7 @@ namespace BaseHomework
             }
         }
 
-        // Меняет значение ноды на определенной позиции
+        // Set element value at index
         public void ChangeElementAtIndex(Node node, int index)
         {
             {
@@ -122,12 +120,12 @@ namespace BaseHomework
             }
         }
 
-        // Получить значение по индексу
-        public int Get(int indx)
+        // Get value of element at index
+        public int Get(int idx)
         {
             Node temp = head;
             int count = 0;
-            while (count < indx)
+            while (count < idx)
             {
                 temp = temp.next;
                 count++;
@@ -135,7 +133,7 @@ namespace BaseHomework
             return temp.value;
         }
 
-        // Содержит ли лист значение
+        // List value contains
         public bool Contains(int val)
         {
             Node temp = head;
@@ -150,7 +148,7 @@ namespace BaseHomework
             return false;
         }
 
-        // Добавить массив в лист в конец
+        // Add array of nodes at the end of the list
         public void AddAll(int[] vals)
         {
             for (int i = 0; i < vals.Length; i++)
@@ -159,17 +157,17 @@ namespace BaseHomework
             }
         }
 
-        // Добавить массив в лист по индексу
-        public void AddAllAtIndex(int indx, int[] vals)
+        // Add array of nodes to List at index
+        public void AddAllAtIndex(int idx, int[] vals)
         {
             for (int i = 0; i < vals.Length; i++)
             {
-                AddAtIndex(new LinkedList.Node(vals[i]),indx);
-                indx++;
+                AddAtIndex(new LinkedList.Node(vals[i]),idx);
+                idx++;
             }
         }
 
-        //Возвращает индекс первого совпадения
+        // Get first index of value
         public int IndexOf(int val)
         {
             Node temp = head;
@@ -182,7 +180,7 @@ namespace BaseHomework
             return count;
         }
 
-        //Возвращает индексы совпадающих элементов
+        // Get indexes of value
         public int[] Search(int val)
         {
             Node temp = head;
@@ -209,7 +207,7 @@ namespace BaseHomework
             return result;
         }
 
-        //Удаляет элемент со значением val
+        // Remove node of value
         public void RemoveVal(int val)
         {
             Node temp = head;
@@ -225,14 +223,14 @@ namespace BaseHomework
 
         }
 
-        //Удаляет элемент по индексу
-        public void RemoveIndx(int indx)
+        // Remove node at index
+        public void RemoveIndx(int idx)
         {
             Node temp = head;
             int count = 0;
-            while (count < indx)
+            while (count < idx)
             {
-                if (count == indx -1)
+                if (count == idx -1)
                 {
                     temp.next = temp.next.next;
                 }
@@ -241,7 +239,7 @@ namespace BaseHomework
             }
         }
 
-        // Удаляет все элементы с начением val
+        // Remove all nodes of value
         public void RemoveAll(int val)
         {
             Node temp = head;
@@ -258,7 +256,7 @@ namespace BaseHomework
         }
 
 
-        // Вывести лист
+        // Print Lists
         public void PrintList()
         {
             Node tmp = head;

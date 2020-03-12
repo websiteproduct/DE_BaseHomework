@@ -19,45 +19,6 @@ namespace BaseHomework
             realLength = array.Length;
         }
 
-        // Increase array length by 1
-        private int[] ArrayOneElementIncrease(int[] array)
-        {
-            int[] newArray = new int[array.Length * 3 / 2 + 1];
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                newArray[i] = array[i];
-            }
-
-            return newArray;
-        }
-
-        // Reduce array length by 1
-        private int[] ArrayOneElementReduce(int[] array)
-        {
-            int[] newArray = new int[2 * (array.Length - 1) / 3];
-
-            for (int i = 0; i < newArray.Length; i++)
-            {
-                newArray[i] = array[i];
-            }
-
-            return newArray;
-        }
-
-        // Increase array length by certain value
-        private int[] ArrayIncrease(int[] array, int valsLength)
-        {
-            int[] newArray = new int[array.Length + valsLength * 3 / 2 + 1];
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                newArray[i] = array[i];
-            }
-
-            return newArray;
-        }
-
         // Add element
         public void Add(int val)
         {
@@ -109,6 +70,45 @@ namespace BaseHomework
             {
                 throw new InvalidCastException("Array index out of bounds exception");
             }
+        }
+
+        // Increase array length by 1
+        private int[] ArrayOneElementIncrease(int[] array)
+        {
+            int[] newArray = new int[array.Length * 3 / 2 + 1];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                newArray[i] = array[i];
+            }
+
+            return newArray;
+        }
+
+        // Reduce array length by 1
+        private int[] ArrayOneElementReduce(int[] array)
+        {
+            int[] newArray = new int[2 * (array.Length - 1) / 3];
+
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                newArray[i] = array[i];
+            }
+
+            return newArray;
+        }
+
+        // Increase array length by certain value
+        private int[] ArrayIncrease(int[] array, int valsLength)
+        {
+            int[] newArray = new int[array.Length + valsLength * 3 / 2 + 1];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                newArray[i] = array[i];
+            }
+
+            return newArray;
         }
 
         // Get array length
